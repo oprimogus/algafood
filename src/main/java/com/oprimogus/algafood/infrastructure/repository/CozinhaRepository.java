@@ -24,14 +24,13 @@ public class CozinhaRepository implements ICozinhaRepository {
         return manager.find(Cozinha.class, id);
     }
 
-    @Transactional
     @Override
+    @Transactional
     public Cozinha save(Cozinha cozinha) {
         return manager.merge(cozinha);
     }
-
-    @Transactional
     @Override
+    @Transactional
     public void remove(Cozinha cozinha) {
         cozinha = find(cozinha.getId());
         manager.remove(cozinha);
