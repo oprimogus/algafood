@@ -16,7 +16,7 @@ public class CozinhaRepository implements ICozinhaRepository {
 
     @Override
     public List<Cozinha> list() {
-        return manager.createQuery("from cozinhas", Cozinha.class).getResultList();
+        return manager.createQuery("from Cozinha", Cozinha.class).getResultList();
     }
 
     @Override
