@@ -2,6 +2,7 @@ package com.oprimogus.algafood.infrastructure.repository;
 
 import com.oprimogus.algafood.domain.model.Restaurante;
 import com.oprimogus.algafood.domain.repository.IRestauranteRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,8 +33,11 @@ public class RestauranteRepository implements IRestauranteRepository {
 
     @Override
     @Transactional
-    public void remove(Restaurante restaurante) {
-        restaurante = find(restaurante.getId());
+    public void remove(Long id) {
+        Restaurante restaurante = find(id);
+        if (restaurante == null){
+            throw new EmptyResultDataAccessException(1);
+        }
         manager.remove(restaurante);
     }
 }

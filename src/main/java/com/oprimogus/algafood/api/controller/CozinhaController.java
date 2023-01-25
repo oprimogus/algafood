@@ -1,13 +1,12 @@
 package com.oprimogus.algafood.api.controller;
 
+import com.oprimogus.algafood.domain.exception.EntidadeEmUsoException;
+import com.oprimogus.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.oprimogus.algafood.domain.model.Cozinha;
 import com.oprimogus.algafood.domain.service.CadastroCozinhaService;
 import com.oprimogus.algafood.infrastructure.repository.CozinhaRepository;
-import org.apache.coyote.Response;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -60,16 +59,17 @@ public class CozinhaController {
 
     @DeleteMapping("/{cozinhaId}")
     public ResponseEntity<Cozinha> remove(@PathVariable Long cozinhaId) {
-        Cozinha cozinha = cozinhaRepository.find(cozinhaId);
         try {
-            if (cozinha != null) {
-                cozinhaRepository.remove(cozinha);
-                return ResponseEntity.noContent().build();
-            }
+            cadastroCozinha.excluir(cozinhaId);
+            return ResponseEntity.noContent().build();
+
+        } catch (EntidadeNaoEncontradaException e){
             return ResponseEntity.notFound().build();
 
-        } catch (DataIntegrityViolationException e) {
+        } catch (EntidadeEmUsoException e){
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }
+
+
 }

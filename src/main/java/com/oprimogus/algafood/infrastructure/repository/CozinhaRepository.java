@@ -2,6 +2,7 @@ package com.oprimogus.algafood.infrastructure.repository;
 
 import com.oprimogus.algafood.domain.model.Cozinha;
 import com.oprimogus.algafood.domain.repository.ICozinhaRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,8 +32,11 @@ public class CozinhaRepository implements ICozinhaRepository {
     }
     @Override
     @Transactional
-    public void remove(Cozinha cozinha) {
-        cozinha = find(cozinha.getId());
+    public void remove(Long Id) {
+        Cozinha cozinha = find(Id);
+        if (cozinha == null){
+            throw new EmptyResultDataAccessException(1);
+        }
         manager.remove(cozinha);
 
 

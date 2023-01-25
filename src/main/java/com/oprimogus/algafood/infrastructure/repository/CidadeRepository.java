@@ -2,6 +2,7 @@ package com.oprimogus.algafood.infrastructure.repository;
 
 import com.oprimogus.algafood.domain.model.Cidade;
 import com.oprimogus.algafood.domain.repository.ICidadeRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,8 +34,11 @@ public class CidadeRepository implements ICidadeRepository {
 
     @Override
     @Transactional
-    public void remove(Cidade cidade) {
-        cidade = find(cidade.getId());
+    public void remove(Long cidadeId) {
+        Cidade cidade = find(cidadeId);
+        if (cidade == null) {
+            throw new EmptyResultDataAccessException(1);
+        }
         manager.remove(cidade);
     }
 }

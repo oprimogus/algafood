@@ -9,5 +9,5 @@ public interface ICidadeRepository {
     List<Cidade> list();
     Cidade find (Long id);
     Cidade save (Cidade cidade);
-    void remove (Cidade cidade);
+    void remove (Long id);
 }
