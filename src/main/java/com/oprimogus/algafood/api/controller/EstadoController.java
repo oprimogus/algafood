@@ -49,7 +49,7 @@ public class EstadoController {
     }
 
     @PutMapping("/{estadoId}")
-    public ResponseEntity<?> update(@PathVariable Long estadoId, @RequestBody Estado estado) {
+    public ResponseEntity<?> updateAll(@PathVariable Long estadoId, @RequestBody Estado estado) {
         try {
             Estado estadoAtual = estadoRepository.find(estadoId);
             if (estadoAtual != null) {
@@ -63,6 +63,7 @@ public class EstadoController {
                     .body(e.getMessage());
         }
     }
+
     @DeleteMapping("/{estadoId}")
     public ResponseEntity<?> remove(@PathVariable Long estadoId) {
         try {
