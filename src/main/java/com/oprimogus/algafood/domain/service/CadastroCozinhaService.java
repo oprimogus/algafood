@@ -2,7 +2,7 @@ package com.oprimogus.algafood.domain.service;
 
 import com.oprimogus.algafood.domain.exception.EntidadeEmUsoException;
 import com.oprimogus.algafood.domain.model.Cozinha;
-import com.oprimogus.algafood.infrastructure.repository.CozinhaRepository;
+import com.oprimogus.algafood.domain.repository.ICozinhaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -13,14 +13,13 @@ import org.springframework.stereotype.Service;
 public class CadastroCozinhaService {
 
     @Autowired
-    private CozinhaRepository cozinhaRepository;
+    private ICozinhaRepository cozinhaRepository;
     public Cozinha salvar (Cozinha cozinha){
         return cozinhaRepository.save(cozinha);
-
     }
     public void excluir (Long cozinhaId){
         try {
-            cozinhaRepository.remove(cozinhaId);
+            cozinhaRepository.deleteById(cozinhaId);
 
         } catch (EmptyResultDataAccessException e) {
             throw new EntidadeEmUsoException(

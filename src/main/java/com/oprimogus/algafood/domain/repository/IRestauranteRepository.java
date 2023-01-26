@@ -1,14 +1,9 @@
 package com.oprimogus.algafood.domain.repository;
 
 import com.oprimogus.algafood.domain.model.Restaurante;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface IRestauranteRepository extends JpaRepository<Restaurante, Long> {
 
-public interface IRestauranteRepository {
-
-    List<Restaurante> list();
-    Restaurante find(Long id);
-    Restaurante save(Restaurante restaurante);
-    void remove (Long id);
 
 }
