@@ -3,7 +3,7 @@ package com.oprimogus.algafood.domain.service;
 import com.oprimogus.algafood.domain.exception.EntidadeEmUsoException;
 import com.oprimogus.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.oprimogus.algafood.domain.model.Estado;
-import com.oprimogus.algafood.domain.repository.IEstadoRepository;
+import com.oprimogus.algafood.domain.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class CadastroEstadoService {
 
     @Autowired
-    private IEstadoRepository estadoRepository;
+    private EstadoRepository estadoRepository;
 
     public Estado salvar (Estado estado){
         return estadoRepository.save(estado);

@@ -2,9 +2,8 @@ package com.oprimogus.algafood.api.controller;
 
 import com.oprimogus.algafood.domain.exception.EntidadeEmUsoException;
 import com.oprimogus.algafood.domain.exception.EntidadeNaoEncontradaException;
-import com.oprimogus.algafood.domain.model.Cozinha;
 import com.oprimogus.algafood.domain.model.Estado;
-import com.oprimogus.algafood.domain.repository.IEstadoRepository;
+import com.oprimogus.algafood.domain.repository.EstadoRepository;
 import com.oprimogus.algafood.domain.service.CadastroEstadoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import java.util.Optional;
 public class EstadoController {
 
     @Autowired
-    private IEstadoRepository estadoRepository;
+    private EstadoRepository estadoRepository;
 
     @Autowired
     private CadastroEstadoService cadastroEstadoService;

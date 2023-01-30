@@ -3,7 +3,7 @@ package com.oprimogus.algafood.api.controller;
 import com.oprimogus.algafood.domain.exception.EntidadeEmUsoException;
 import com.oprimogus.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.oprimogus.algafood.domain.model.Cozinha;
-import com.oprimogus.algafood.domain.repository.ICozinhaRepository;
+import com.oprimogus.algafood.domain.repository.CozinhaRepository;
 import com.oprimogus.algafood.domain.service.CadastroCozinhaService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.Optional;
 public class CozinhaController {
 
     @Autowired
-    private ICozinhaRepository cozinhaRepository;
+    private CozinhaRepository cozinhaRepository;
 
     @Autowired
     private CadastroCozinhaService cadastroCozinha;

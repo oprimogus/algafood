@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ICozinhaRepository extends JpaRepository<Cozinha, Long> {
+public interface CozinhaRepository extends JpaRepository<Cozinha, Long> {
 
     List<Cozinha> findTodasByNome (String nome);
 

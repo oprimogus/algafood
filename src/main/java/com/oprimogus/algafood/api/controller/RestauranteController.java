@@ -3,9 +3,8 @@ package com.oprimogus.algafood.api.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oprimogus.algafood.domain.exception.EntidadeEmUsoException;
 import com.oprimogus.algafood.domain.exception.EntidadeNaoEncontradaException;
-import com.oprimogus.algafood.domain.model.Cozinha;
 import com.oprimogus.algafood.domain.model.Restaurante;
-import com.oprimogus.algafood.domain.repository.IRestauranteRepository;
+import com.oprimogus.algafood.domain.repository.RestauranteRepository;
 import com.oprimogus.algafood.domain.service.CadastroRestauranteService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ import java.util.Optional;
 public class RestauranteController {
 
     @Autowired
-    private IRestauranteRepository restauranteRepository;
+    private RestauranteRepository restauranteRepository;
     @Autowired
     private CadastroRestauranteService cadastroRestauranteService;
 

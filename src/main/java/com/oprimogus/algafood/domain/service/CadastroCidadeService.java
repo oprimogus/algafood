@@ -4,8 +4,8 @@ import com.oprimogus.algafood.domain.exception.EntidadeEmUsoException;
 import com.oprimogus.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.oprimogus.algafood.domain.model.Cidade;
 import com.oprimogus.algafood.domain.model.Estado;
-import com.oprimogus.algafood.domain.repository.ICidadeRepository;
-import com.oprimogus.algafood.domain.repository.IEstadoRepository;
+import com.oprimogus.algafood.domain.repository.CidadeRepository;
+import com.oprimogus.algafood.domain.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -17,10 +17,10 @@ import java.util.Optional;
 public class CadastroCidadeService {
 
     @Autowired
-    private ICidadeRepository cidadeRepository;
+    private CidadeRepository cidadeRepository;
 
     @Autowired
-    private IEstadoRepository estadoRepository;
+    private EstadoRepository estadoRepository;
 
     public Cidade salvar(Cidade cidade) {
         Long estadoId = cidade.getEstado().getId();

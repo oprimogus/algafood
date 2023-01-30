@@ -2,8 +2,8 @@ package com.oprimogus.algafood.api.controller;
 
 import com.oprimogus.algafood.domain.model.Cozinha;
 import com.oprimogus.algafood.domain.model.Restaurante;
-import com.oprimogus.algafood.domain.repository.ICozinhaRepository;
-import com.oprimogus.algafood.domain.repository.IRestauranteRepository;
+import com.oprimogus.algafood.domain.repository.CozinhaRepository;
+import com.oprimogus.algafood.domain.repository.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +18,10 @@ import java.util.Optional;
 public class TesteController {
 
     @Autowired
-    private ICozinhaRepository cozinhaRepository;
+    private CozinhaRepository cozinhaRepository;
 
     @Autowired
-    private IRestauranteRepository restauranteRepository;
+    private RestauranteRepository restauranteRepository;
 
     @GetMapping("/cozinhas/por-nome")
     public List<Cozinha> cozinhasPorNome(String nome){
@@ -33,14 +33,14 @@ public class TesteController {
         return cozinhaRepository.findByNome(nome);
     }
 
-    @GetMapping("/restaurantes/por-nome")
-    public List<Restaurante> restaurantePorNome(String nome, Long cozinhaId){
-        return restauranteRepository.consultarPorNome(nome, cozinhaId);
-    }
+//    @GetMapping("/restaurantes/por-nome")
+//    public List<Restaurante> restaurantePorNome(String nome, Long cozinhaId){
+//        return restauranteRepository.procurar(nome, cozinhaId);
+//    }
 
     @GetMapping("/restaurantes/por-nome-e-frete")
     public List<Restaurante> restaurantePorNome(String nome, BigDecimal taxaFreteInicial,
                                                 BigDecimal taxaFreteFinal){
-        return restauranteRepository.find(nome, taxaFreteInicial, taxaFreteFinal);
+        return restauranteRepository.procurar(nome, taxaFreteInicial, taxaFreteFinal);
     }
 }

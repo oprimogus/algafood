@@ -1,7 +1,7 @@
 package com.oprimogus.algafood.infrastructure.repository;
 
 import com.oprimogus.algafood.domain.model.Restaurante;
-import com.oprimogus.algafood.domain.repository.IRestauranteRepositoryQueries;
+import com.oprimogus.algafood.domain.repository.RestauranteRepositoryQueries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,12 +10,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
-public class RestauranteRepositoryImpl implements IRestauranteRepositoryQueries {
+public class RestauranteRepositoryImpl implements RestauranteRepositoryQueries {
 
     @Autowired
     private EntityManager manager;
     @Override
-    public List<Restaurante> find(String nome,
+    public List<Restaurante> procurar(String nome,
                                   BigDecimal taxaFreteInicial, BigDecimal taxaFreteFinal) {
 
         var jpql = "from Restaurante where nome like :nome "

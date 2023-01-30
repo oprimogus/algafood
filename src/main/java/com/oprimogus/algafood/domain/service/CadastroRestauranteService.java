@@ -4,8 +4,8 @@ import com.oprimogus.algafood.domain.exception.EntidadeEmUsoException;
 import com.oprimogus.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.oprimogus.algafood.domain.model.Cozinha;
 import com.oprimogus.algafood.domain.model.Restaurante;
-import com.oprimogus.algafood.domain.repository.ICozinhaRepository;
-import com.oprimogus.algafood.domain.repository.IRestauranteRepository;
+import com.oprimogus.algafood.domain.repository.CozinhaRepository;
+import com.oprimogus.algafood.domain.repository.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 public class CadastroRestauranteService {
 
     @Autowired
-    private IRestauranteRepository restauranteRepository;
+    private RestauranteRepository restauranteRepository;
     @Autowired
-    private ICozinhaRepository cozinhaRepository;
+    private CozinhaRepository cozinhaRepository;
 
     public Restaurante salvar (Restaurante restaurante){
         Long cozinhaId = restaurante.getCozinha().getId();
