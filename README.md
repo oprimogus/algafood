@@ -11,7 +11,7 @@ mas é provável eu achar este projeto muito legal e implementar melhorias/featu
 
 ### 1. Instalar as dependências do maven no projeto
 ### 2. Definir as variáveis de conexão ao banco de dados
-    Edite o arquivo src/main/resources/application.yml
+    Edite o arquivo application-dev.yml 
     - DB_HOST=host
     - DB_PORT=port
     - DB_NAME=name
