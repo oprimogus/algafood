@@ -3,11 +3,8 @@ spring:
     url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&serverTimeZone=UTC
     username: ${DB_USER}
     password: ${DB_PASSWORD}
-    name: Algafood
-
   jpa:
-    generate-ddl: true
+    generate-ddl: false
     hibernate:
-      ddl-auto: create
-    show-sql: true
-#Teste
+      ddl-auto: none
+    show-sql: false
