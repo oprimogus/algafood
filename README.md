@@ -11,16 +11,12 @@ mas é provável eu achar este projeto muito legal e implementar melhorias/featu
 
 ### 1. Instalar as dependências do maven no projeto
 ### 2. Definir as variáveis de conexão ao banco de dados
-    Edite o arquivo application-dev.yml 
+    Edite o arquivo application-dev.yml para ter os dados do seu banco local
     - DB_HOST=host
     - DB_PORT=port
     - DB_NAME=name
     - DB_USER=user
     - DB_PASSWORD=password
-
-    - jpa.generate-ddl: true | False --> Flag para gerar os schemas do banco
-    - jpa.hibernate.ddl-auto: Create | Drop | none --> Flag para Drop e create de tabelas no início da aplicação
-    - jpa.show-sql: true | false --> Flag para exibir sql no log
 
 ### 3. Rode o AlgafoodApplication
 
