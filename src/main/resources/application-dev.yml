@@ -16,6 +16,8 @@ spring:
         persistence:
           schema-generation:
             scripts:
-              action: create
-              create-target: src/main/resources/ddl.sql
+#              action: create
+#              create-target: src/main/resources/ddl.sql
     show-sql: true
+  flyway:
+    locations: classpath:db/migration,classpath:db/testdata
