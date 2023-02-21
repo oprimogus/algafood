@@ -11,4 +11,11 @@ spring:
 #    generate-ddl: true
 #    hibernate:
 #      ddl-auto: create
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            scripts:
+              action: create
+              create-target: src/main/resources/ddl.sql
     show-sql: true
